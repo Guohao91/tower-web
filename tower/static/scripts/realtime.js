@@ -114,12 +114,12 @@ $('#header-arm').on('click', function () {
   });
 })
 
-$('#header-mode-loiter').on('click', function () {
+$('#header-mode-GUIDED_NOGPS').on('click', function () {
   $.ajax({
     method: 'PUT',
     url: '/api/mode',
     contentType : 'application/json',
-    data: JSON.stringify({ mode: 'LOITER' }),
+    data: JSON.stringify({ mode: 'GUIDED_NOGPS' }),
   })
   .done(function( msg ) {
     console.log('sent mode change')
@@ -137,6 +137,19 @@ $('#header-mode-stabilize').on('click', function () {
     console.log('sent mode change')
   });
 })
+
+$('#header-mode-Land').on('click', function () {
+  $.ajax({
+    method: 'PUT',
+    url: '/api/mode',
+    contentType : 'application/json',
+    data: JSON.stringify({ mode: 'LAND' }),
+  })
+  .done(function( msg ) {
+    console.log('sent mode change')
+  });
+})
+
 
 var globmsg = null;
 
