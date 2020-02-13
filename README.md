@@ -8,7 +8,7 @@ Example HTML5-based GCS for UAVs built on DroneKit Python. Can run on Desktop vi
 ## Running
 
 ```
-sudo -H pip install -UI git+https://github.com/dronekit/tower-web.git
+sudo -H pip install -UI git+https://github.com/Guohao91/tower-web.git
 tower tcp:127.0.0.1:5760
 ```
 
@@ -18,7 +18,7 @@ Then open <http://localhost:24403/> in a browser.
 ## Running in a Electron window
 
 ```
-git clone https://github.com/dronekit/tower-web.git
+git clone https://github.com/Guohao91/tower-web.git
 cd tower-desktop
 pip install -r requirements.txt
 npm install -g electron-shell
