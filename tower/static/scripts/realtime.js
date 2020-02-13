@@ -114,12 +114,36 @@ $('#header-arm').on('click', function () {
   });
 })
 
+$('#header-disarm').on('click', function () {
+  $.ajax({
+    method: 'PUT',
+    url: '/api/arm',
+    contentType : 'application/json',
+    data: JSON.stringify({ arm: false }),
+  })
+  .done(function( msg ) {
+    console.log('sent arming message')
+  });
+})
+
 $('#header-mode-GUIDED_NOGPS').on('click', function () {
   $.ajax({
     method: 'PUT',
     url: '/api/mode',
     contentType : 'application/json',
     data: JSON.stringify({ mode: 'GUIDED_NOGPS' }),
+  })
+  .done(function( msg ) {
+    console.log('sent mode change')
+  });
+})
+
+$('#header-mode-althold').on('click', function () {
+  $.ajax({
+    method: 'PUT',
+    url: '/api/mode',
+    contentType : 'application/json',
+    data: JSON.stringify({ mode: 'ALT_HOLD' }),
   })
   .done(function( msg ) {
     console.log('sent mode change')
@@ -138,7 +162,7 @@ $('#header-mode-stabilize').on('click', function () {
   });
 })
 
-$('#header-mode-Land').on('click', function () {
+$('#header-mode-land').on('click', function () {
   $.ajax({
     method: 'PUT',
     url: '/api/mode',
@@ -149,7 +173,6 @@ $('#header-mode-Land').on('click', function () {
     console.log('sent mode change')
   });
 })
-
 
 var globmsg = null;
 
