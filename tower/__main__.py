@@ -127,7 +127,7 @@ def connect_to_drone():
     print 'connecting to drone...'
     while not vehicle:
         try:
-            vehicle = connect(sys.argv[1], wait_ready=wait_ready=False,baud=921600)
+            vehicle = connect(sys.argv[1], wait_ready=False,baud=921600)
             vehicle.wait_ready(True, raise_exception=False) 
             #import argparse
             #parser = argparse.ArgumentParser(description='Control Copter and send commands in NoGPS mode ')
