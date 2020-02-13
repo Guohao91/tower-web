@@ -127,19 +127,20 @@ def connect_to_drone():
     print 'connecting to drone...'
     while not vehicle:
         try:
-            #vehicle = connect(sys.argv[1], wait_ready=True, rate=10) 
-            import argparse
-            parser = argparse.ArgumentParser(description='Control Copter and send commands in NoGPS mode ')
-            parser.add_argument('--connect',
-                   help="Vehicle connection target string. If not specified, SITL automatically started and used.")
-            args = parser.parse_args()
-            connection_string = args.connect
+            vehicle = connect(sys.argv[1], wait_ready=wait_ready=False,baud=921600)
+            vehicle.wait_ready(True, raise_exception=False) 
+            #import argparse
+            #parser = argparse.ArgumentParser(description='Control Copter and send commands in NoGPS mode ')
+            #parser.add_argument('--connect',
+            #      help="Vehicle connection target string. If not specified, SITL automatically started and used.")
+            #args = parser.parse_args()
+            #connection_string = args.connect
             # Start SITL if no connection string specified
-            if not connection_string:
-                connection_string = "/dev/ttyACM0"
-                print('Connecting to vehicle on: %s' % connection_string)
-                vehicle = connect(connection_string, wait_ready=False,baud=921600)
-                vehicle.wait_ready(True, raise_exception=False)
+            #if not connection_string:
+            #   connection_string = "/dev/ttyACM0"
+            #   print('Connecting to vehicle on: %s' % connection_string)
+            #   vehicle = connect(connection_string, wait_ready=False,baud=921600)
+            #   vehicle.wait_ready(True, raise_exception=False)
 
         except Exception as e:
             print 'waiting for connection... (%s)' % str(e)
